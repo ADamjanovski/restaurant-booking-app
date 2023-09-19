@@ -32,7 +32,7 @@ const PasswordUpdate = ({ userId, token }) => {
     }
     setIsLoading(true);
     const data = await useHttp({
-      url: "https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/dashboard/updatePassword",
+      url: "http://localhost:3000/api/dashboard/updatePassword",
       method: "PATCH",
       body: JSON.stringify({
         id: userId,

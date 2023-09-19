@@ -62,7 +62,7 @@ export const getUserRating = async (userId, restaurantId) => {
 export const getBiggsetTable = async (restaurantId) => {
   try {
     const data = await useHttp({
-      url: `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/biggestTable/${restaurantId}`,
+      url: `http://localhost:3000/api/restaurants/biggestTable/${restaurantId}`,
       method: "GET",
       headers: {
         Accept: "application/json",
