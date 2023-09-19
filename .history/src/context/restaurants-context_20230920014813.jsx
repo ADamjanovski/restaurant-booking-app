@@ -40,7 +40,7 @@ export const RestaurantsContextProvider = (props) => {
         },
       });
       const restaurants = await data.json();
-      if (url.startsWith("https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?categories")) {
+      if (url.startsWith("https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants?categories")) {
         const fetchedRestaurants = restaurants.map(
           (data) => data.restaurant[0]
         );
@@ -69,7 +69,7 @@ export const RestaurantsContextProvider = (props) => {
   const getSingleRestaurant = useCallback(async (restaurantId) => {
     try {
       const data = await fetch(
-        `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/singleRestaurant/${restaurantId}`,
+        `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/singleRestaurant/${restaurantId}`,
         {
           method: "GET",
           headers: {

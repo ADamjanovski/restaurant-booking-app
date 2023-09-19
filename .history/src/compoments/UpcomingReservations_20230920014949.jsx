@@ -7,7 +7,7 @@ const UpcomingReservations = () => {
   const authCtx = useContext(AuthContext);
   const [reservations, setReservations] = useState();
   const request = {
-    url: `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/upcomingReservations/${authCtx.user.id}`,
+    url: `https://restaurant-booking-backend-damjanovski.onrender.comhttps://restaurant-booking-backend-damjanovski.onrender.comhttps://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/upcomingReservations/${authCtx.user.id}`,
     method: "GET",
     headers: {
       Authorization: `Bearer ${authCtx.token}`,

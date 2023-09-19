@@ -56,7 +56,7 @@ export const AuthContextProvider = (props) => {
 
   const loginHandler = async (username, password) => {
     try {
-      const data = await fetch("https://restaurant-booking-backend-damjanovski.onrender.com/api/login", {
+      const data = await fetch("https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/login", {
         method: "POST",
         body: JSON.stringify({
           username: username,

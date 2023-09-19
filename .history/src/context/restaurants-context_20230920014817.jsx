@@ -69,7 +69,7 @@ export const RestaurantsContextProvider = (props) => {
   const getSingleRestaurant = useCallback(async (restaurantId) => {
     try {
       const data = await fetch(
-        `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/singleRestaurant/${restaurantId}`,
+        `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/singleRestaurant/${restaurantId}`,
         {
           method: "GET",
           headers: {

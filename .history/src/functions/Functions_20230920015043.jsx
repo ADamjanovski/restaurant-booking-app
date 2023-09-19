@@ -3,7 +3,7 @@ import { useHttp } from "../hooks/useHttp";
 export const SetRating = (userId, token, restaurantId, rating) => {
   try {
     const data = useHttp({
-      url: `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/rating`,
+      url: `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/rating`,
       body: JSON.stringify({
         id: userId,
         restaurantId: restaurantId,
@@ -24,7 +24,7 @@ export const SetRating = (userId, token, restaurantId, rating) => {
 export const getImages = (restaurantId) => {
   try {
     const data = useHttp({
-      url: `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/images?restaurantId=${restaurantId}`,
+      url: `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/images?restaurantId=${restaurantId}`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const getImages = (restaurantId) => {
 export const getUserRating = async (userId, restaurantId) => {
   try {
     const data = await useHttp({
-      url: `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/rating/${userId}?restaurantId=${restaurantId}`,
+      url: `https://restaurant-booking-backend-adamjanovski-uhj6.onrender.com/api/restaurants/rating/${userId}?restaurantId=${restaurantId}`,
       method: "GET",
       headers: {
         Accept: "application/json",
