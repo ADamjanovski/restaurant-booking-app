@@ -1,0 +1,121 @@
+import { useContext } from "react";
+import AuthContext from "../context/auth-context";
+import { useRef } from "react";
+import { useHttp } from "../hooks/useHttp";
+import Card from "../compoments/UI/Card";
+import { useState } from "react";
+import Modal from "@mui/material/Modal";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+const ContactUs = () => {
+  const ctx = useContext(AuthContext);
+  const name = useRef();
+  const email = useRef();
+  const description = useRef();
+  const [finishedRequest, setFinishedRequest] = useState(false);
+  const [isValid, setIsValid] = useState({
+    valid: true,
+    message: "",
+  });
+  const handleClose = () => setFinishedRequest(false);
+  const formSubmitHandler = async (event) => {
+    event.preventDefault();
+    if (
+      !restaurantName.current.value.trim("").length > 0 ||
+      !description.current.value.trim("").length > 0
+    ) {
+      setIsValid({
+        valid: false,
+        message: "You need to fill out every input.",
+      });
+      setTimeout(() => {
+        setIsValid({
+          valid: true,
+          message: "",
+        });
+      }, 2000);
+      return;
+    }
+
+    const request = await useHttp({
+      url: "http://localhost:3000/api/users/customerService",
+      method: "POST",
+      body: JSON.stringify({
+        email: email.current.value,
+        name: restaurantName.current.value,
+        description: description.current.value,
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(request);
+    if (request.message !== undefined) {
+      setIsValid({
+        valid: true,
+        message: request.message,
+      });
+      alert(request.message);
+      return;
+    }
+    setFinishedRequest(true);
+  };
+  return (
+    <div>
+        <Card>
+      <form onSubmit={formSubmitHandler} className=" m-5 flex flex-col ">
+        <label className="m-2 ">Name</label>
+        <input
+          type="text"
+          placeholder="Name"
+          className=" p-2 rounded-lg"
+          ref={name}
+        />
+        <label className="m-2">Email</label>
+        <input
+          type="email"
+          className="p-2 rounded-lg"
+          placeholder="Email"
+          ref={email}
+        />
+        <label className="m-2">Description of your problem</label>
+        <textarea
+          placeholder="Description"
+          className="p-2 rounded-lg mb-6"
+          ref={description}
+        />
+        <button
+          className="p-2 rounded-lg bg-accent w-1/2 self-center disabled:bg-neutral-500"
+          disabled={!ctx.isLoggedIn}
+        >
+          Submit
+        </button>
+      </form>
+      {!isValid.valid && (
+        <Alert severity="error">
+          <AlertTitle>Error</AlertTitle>
+          {isValid.message}
+        </Alert>
+      )}
+              {finishedRequest && (
+          <Modal
+            open={finishedRequest}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <div className="absolute top-[15%] sm:left-[10%] left-[3%] lg:left-[25%] md:w-[600px] w-3/4 m-10 border-2 border-neutral-400 bg-secondary">
+              <Alert severity="success">
+                <AlertTitle>Success</AlertTitle>
+                Thank you for your input!! We will
+              </Alert>
+            </div>
+          </Modal>
+        )}
+      </Card>
+    </div>
+  );
+};
+
+export default ContactUs;

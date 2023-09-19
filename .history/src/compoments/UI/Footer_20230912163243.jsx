@@ -1,0 +1,18 @@
+import { Link } from "react-router-dom";
+import InstagramIcon from "../../assets/InstagramIcon";
+
+const Footer = () => {
+  return (
+    <footer className="absolute flex p-6 flex-col items-center justify-center bg-neutral-900  w-full gap-3">
+        <Link className=" ">
+          Become A Partner
+        </Link>
+        <Link className="">
+          Contact Us
+        </Link>
+        <InstagramIcon />
+    </footer>
+  );
+};
+
+export default Footer;

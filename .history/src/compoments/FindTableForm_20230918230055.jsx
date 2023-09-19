@@ -1,0 +1,6 @@
+
+
+
+const FindTableForm=({hasError, setTable})=>{
+
+}

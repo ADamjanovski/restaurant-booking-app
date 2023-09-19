@@ -1,0 +1,23 @@
+import { useHttp } from "../hooks/useHttp";
+
+export const SetRating = (userId, restaurantId, rating) => {
+  const data = useHttp({
+    url: `http://localhost:3000/api/restaurants/rating`,
+    body: JSON.stringify({
+      id: userId,
+      restaurantId: restaurantId,
+      rating: rating,
+    }),
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${authCtx.token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+
+};
+
+export const getImages= (restaurantId)=>{
+    
+}
