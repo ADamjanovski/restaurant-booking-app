@@ -98,7 +98,7 @@ export const AuthContextProvider = (props) => {
   };
   const registerHandler = async (User) => {
     try {
-      const data = await fetch("http://localhost:3000/api/users", {
+      const data = await fetch("https://restaurant-booking-backend-damjanovski.onrender.com/api/users", {
         method: "POST",
         body: JSON.stringify({
           name: User.name,
@@ -127,7 +127,7 @@ export const AuthContextProvider = (props) => {
 
   const getUserData = async () => {
     try {
-      const data = await fetch(`http://localhost:3000/api/users/user`, {
+      const data = await fetch(`https://restaurant-booking-backend-damjanovski.onrender.com/api/users/user`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

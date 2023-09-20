@@ -24,9 +24,9 @@ export const RestaurantsContextProvider = (props) => {
       categories[0] === "Show All" ||
       categories.length == 0
     ) {
-      url = `http://localhost:3000/api/restaurants?myCursor=${myCursor}`;
+      url = `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?myCursor=${myCursor}`;
     } else {
-      url = `http://localhost:3000/api/restaurants?categories[]=${JSON.stringify(
+      url = `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?categories[]=${JSON.stringify(
         categories
       )}&&myCursor=${myCursor}`;
     }
@@ -40,7 +40,7 @@ export const RestaurantsContextProvider = (props) => {
         },
       });
       const restaurants = await data.json();
-      if (url.startsWith("http://localhost:3000/api/restaurants?categories")) {
+      if (url.startsWith("https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?categories")) {
         const fetchedRestaurants = restaurants.map(
           (data) => data.restaurant[0]
         );
@@ -69,7 +69,7 @@ export const RestaurantsContextProvider = (props) => {
   const getSingleRestaurant = useCallback(async (restaurantId) => {
     try {
       const data = await fetch(
-        `http://localhost:3000/api/restaurants/singleRestaurant/${restaurantId}`,
+        `thtps://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants/singleRestaurant/${restaurantId}`,
         {
           method: "GET",
           headers: {

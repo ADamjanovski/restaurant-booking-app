@@ -24,9 +24,9 @@ export const RestaurantsContextProvider = (props) => {
       categories[0] === "Show All" ||
       categories.length == 0
     ) {
-      url = `http://localhost:3000/api/restaurants?myCursor=${myCursor}`;
+      url = `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?myCursor=${myCursor}`;
     } else {
-      url = `http://localhost:3000/api/restaurants?categories[]=${JSON.stringify(
+      url = `https://restaurant-booking-backend-damjanovski.onrender.com/api/restaurants?categories[]=${JSON.stringify(
         categories
       )}&&myCursor=${myCursor}`;
     }

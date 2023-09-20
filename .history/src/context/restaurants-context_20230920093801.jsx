@@ -26,7 +26,7 @@ export const RestaurantsContextProvider = (props) => {
     ) {
       url = `http://localhost:3000/api/restaurants?myCursor=${myCursor}`;
     } else {
-      url = `http://localhost:3000/api/restaurants?categories[]=${JSON.stringify(
+      url = `http://localhost:3000m/api/restaurants?categories[]=${JSON.stringify(
         categories
       )}&&myCursor=${myCursor}`;
     }
